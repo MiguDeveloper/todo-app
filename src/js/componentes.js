@@ -6,6 +6,7 @@ const inputNewTarea = document.querySelector('.new-todo');
 const btnCompleted = document.querySelector('.clear-completed');
 const ulFiltros = document.querySelector('.filters');
 const anchorFiltros = document.querySelectorAll('.filtro');
+const contadorLabel = document.querySelector('#count');
 
 export const crearTarea = (tarea) => {
   const htmlTarea = `
@@ -32,6 +33,7 @@ inputNewTarea.addEventListener('keyup', (event) => {
     crearTarea(tarea);
     tareas.agregarTarea(tarea);
     inputNewTarea.value = '';
+    getNoCompletadas();
   }
 });
 
@@ -42,9 +44,11 @@ ulTareas.addEventListener('click', (event) => {
   if (nombreElemento.includes('input')) {
     tareas.marcarCompletado(todoId);
     todoElemento.classList.toggle('completed');
+    getNoCompletadas();
   } else if (nombreElemento.includes('button')) {
     tareas.eliminarTarea(todoId);
     ulTareas.removeChild(todoElemento);
+    getNoCompletadas();
   }
 });
 
@@ -92,3 +96,8 @@ ulFiltros.addEventListener('click', (event) => {
     }
   }
 });
+
+export const getNoCompletadas = () => {
+  const nroTareasCompletadas = tareas.contarNoCompletadas();
+  contadorLabel.innerText = nroTareasCompletadas;
+};

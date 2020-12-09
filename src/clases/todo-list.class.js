@@ -38,4 +38,14 @@ export class TodoList {
 
     this.tareas = this.tareas.map((tarea) => Todo.fromJson(tarea));
   }
+
+  contarNoCompletadas() {
+    let contCompletadas = 0;
+    this.tareas.forEach((tarea) => {
+      if (!tarea.completado) {
+        contCompletadas++;
+      }
+    });
+    return contCompletadas;
+  }
 }
