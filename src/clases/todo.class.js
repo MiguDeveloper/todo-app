@@ -17,7 +17,5 @@ export class Todo {
   }
 
   // metodo para probar el retorno de una instancia
-  imprimirClase() {
-    console.log(`${this.id} - ${this.descripcion}`);
-  }
+  imprimirClase() {}
 }

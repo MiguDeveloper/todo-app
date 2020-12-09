@@ -8,5 +8,3 @@ const tarea = new Todo('Aprender Javascript!!');
 tareas.tareas.forEach((tarea) => {
   componentes.crearTarea(tarea);
 });
-
-console.log('tareas', tareas.tareas);

@@ -32,7 +32,6 @@ inputNewTarea.addEventListener('keyup', (event) => {
     crearTarea(tarea);
     tareas.agregarTarea(tarea);
     inputNewTarea.value = '';
-    console.log(tareas);
   }
 });
 
@@ -47,8 +46,6 @@ ulTareas.addEventListener('click', (event) => {
     tareas.eliminarTarea(todoId);
     ulTareas.removeChild(todoElemento);
   }
-
-  console.log(tareas);
 });
 
 btnCompleted.addEventListener('click', () => {
@@ -57,7 +54,6 @@ btnCompleted.addEventListener('click', () => {
   // borramos de abajo hacia arriba
   for (let idx = ulTareas.children.length - 1; idx >= 0; idx--) {
     const element = ulTareas.children[idx];
-    console.log('en for: ', element);
     if (element.classList.contains('completed')) {
       ulTareas.removeChild(element);
     }
